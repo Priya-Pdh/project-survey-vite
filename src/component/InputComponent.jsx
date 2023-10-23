@@ -20,7 +20,7 @@ export const InputComponent = () => {
     } else if (questions.type === "radio" && !answer) {
       setError("Please select an option");
     } else if (questions.type === "select" && answer === "") {
-      setError("Please select an option"); 
+      setError("Please select an option");
     } else {
       setQuestions(currentQuestion + 1);
       setAnswer(""); // Clear the answer
@@ -44,7 +44,6 @@ export const InputComponent = () => {
     <div className="form-container">
       <div key={questions.id}>
         <p>{questions.question}</p>
-        <div className="error-message">{error}</div>
       </div>
 
       {questions.type === "text" && (
@@ -101,6 +100,7 @@ export const InputComponent = () => {
           <label htmlFor="rangeInput">{rangeValue}</label>
         </>
       )}
+      <div className="error-message">{error}</div>
       <div>
         {currentQuestion < data.length - 1 ? (
           <button onClick={handleNextQuestion}>Next</button>
