@@ -4,46 +4,65 @@ import "../styles/InputComponent.css";
 
 export const InputComponent = () => {
   const [currentQuestion, setQuestions] = useState(0);
-  const [rangeValue, setRangeValue] = useState(0);
 
   const [answer, setAnswer] = useState("");
-  const [isAnswerFilled, setIsAnswerFilled] = useState(false);
+  const [rangeValue, setRangeValue] = useState(0);
+
+  const [error, setError] = useState("");
 
   const questions = data[currentQuestion];
 
   const handleNextQuestion = () => {
-    if (isAnswerFilled) {
-      if (currentQuestion < data.length - 1) {
-        setQuestions(currentQuestion + 1);
-        setIsAnswerFilled(false); // it resets the answer filled status
-        setAnswer(""); // Clears the answer
-      }
+    if (questions.type === "text" && answer.trim() === "") {
+      setError("Please fill out the answer");
+    } else if (questions.type === "range" && rangeValue === 0) {
+      setError("Please select a value on the range slider");
+    } else if (questions.type === "radio" && !answer) {
+      setError("Please select an option");
+    } else if (questions.type === "select" && answer === "") {
+      setError("Please select an option"); 
     } else {
-      alert("Please fill out the answer");
+      setQuestions(currentQuestion + 1);
+      setAnswer(""); // Clear the answer
+      setRangeValue(0); // Clear the range value
+      setError(""); // Clear the error message
     }
   };
 
   const handleChange = (e) => {
     const userInput = e.target.value;
     setAnswer(userInput);
-    setIsAnswerFilled(userInput.trim() !== "");
+    setError("");
   };
 
   const handleRangeChange = (e) => {
     const selectedValue = e.target.value;
     setRangeValue(selectedValue);
-    setIsAnswerFilled(selectedValue !== "0");
+    setError("");
   };
   return (
     <div className="form-container">
       <div key={questions.id}>
         <p>{questions.question}</p>
+        <div className="error-message">{error}</div>
       </div>
+
       {questions.type === "text" && (
-        <input type="text" onChange={handleChange} />
+        <div>
+          <input
+            type="text"
+            className={error && "input-error"}
+            onChange={handleChange}
+          />
+        </div>
       )}
+
       {questions.type === "select" && (
-        <select value={answer} onChange={handleChange}>
+        <select
+          value={answer}
+          className={error && "input-error"}
+          onChange={handleChange}
+        >
           {questions.options.map((option, index) => (
             <option key={index} value={option}>
               {option}
@@ -59,6 +78,7 @@ export const InputComponent = () => {
                 type="radio"
                 value={option}
                 name={`radioOption_${questions.id}`}
+                className={error && "input-error"}
                 onChange={handleChange}
               />
               <label>{option}</label>
@@ -75,6 +95,7 @@ export const InputComponent = () => {
             max={questions.max}
             step={questions.step}
             value={rangeValue}
+            className={error && "input-error"}
             onChange={handleRangeChange}
           />
           <label htmlFor="rangeInput">{rangeValue}</label>

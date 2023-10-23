@@ -9,3 +9,13 @@
     padding: 20px;
   }
   
+/* Add red color for error messages */
+.error-message {
+  color: #ea4335;
+  margin-top: 5px; 
+}
+
+/* Add red border to input fields with errors */
+.input-error {
+  border: 1px solid #ea4335;
+}
