@@ -1,10 +1,9 @@
-// import images from "./assets/backGroundImage.jpeg";
+import { InputComponent } from "./component/InputComponent";
 
-// import Survey from "./component/Survey";
-import {InputComponent} from "./component/InputComponent";
-
- export const App = () => {
-  return (<div >
-    <InputComponent />
-  </div>)
+export const App = () => {
+  return (
+    <div>
+      <InputComponent />
+    </div>
+  );
 };
