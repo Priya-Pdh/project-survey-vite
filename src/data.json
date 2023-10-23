@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "question": "What is your name?",
+    "type": "text",
+    "required": true
+  },
+  {
+    "id": 2,
+    "question": "Select a type of drink:",
+    "type": "select",
+    "options": ["Soda", "Fruit Juice", "Tea", "Coffee", "Water"]
+  },
+  {
+    "id": 3,
+    "question": "Choose a sweetener:",
+    "type": "radio",
+    "options": ["Sugar", "Honey", "Stevia", "No sweetener"]
+  },
+  {
+    "id": 4,
+    "question": "Select drink temperature:",
+    "type": "range",
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "unit": "°C"
+  },
+  {
+    "id": 5,
+    "question": "Select a garnish (if any):",
+    "type": "select",
+    "options": ["Lemon Slice", "Mint Leaves", "Cinnamon Stick", "No garnish"]
+  },
+  {
+    "id": 6,
+    "question": "Choose a cup or glass type:",
+    "type": "radio",
+    "options": ["Mug", "Glass", "Cup", "Bottle"]
+  }
+]
