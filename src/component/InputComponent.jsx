@@ -27,7 +27,7 @@ export const InputComponent = () => {
       setError("Please select an option"); 
     } else {
       setQuestions(currentQuestion + 1);
-      setProgressBar(progressBar < 100 ? Math.floor(progressBar + 16.7) : progressBar);
+      setProgressBar(progressBar < 100 ? (progressBar + (100/data.length)) : progressBar);
       console.log("clicked");
       setAnswer(""); // Clear the answer
       setRangeValue(0); // Clear the range value
