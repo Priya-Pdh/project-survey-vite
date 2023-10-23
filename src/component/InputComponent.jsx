@@ -1,6 +1,7 @@
 import { useState } from "react";
 import data from "../data.json";
 import "../styles/InputComponent.css";
+import { ProgressBar } from "./ProgressBar";
 
 export const InputComponent = () => {
   const [currentQuestion, setQuestions] = useState(0);
@@ -9,6 +10,9 @@ export const InputComponent = () => {
   const [rangeValue, setRangeValue] = useState(0);
 
   const [error, setError] = useState("");
+
+  //Progress Bar
+  const [progressBar, setProgressBar] = useState(0);
 
   const questions = data[currentQuestion];
 
@@ -23,6 +27,8 @@ export const InputComponent = () => {
       setError("Please select an option"); 
     } else {
       setQuestions(currentQuestion + 1);
+      setProgressBar(progressBar < 100 ? Math.floor(progressBar + 16.7) : progressBar);
+      console.log("clicked");
       setAnswer(""); // Clear the answer
       setRangeValue(0); // Clear the range value
       setError(""); // Clear the error message
@@ -40,8 +46,16 @@ export const InputComponent = () => {
     setRangeValue(selectedValue);
     setError("");
   };
+
+
+
+  // const handleBarChange = () => {
+   
+  //   console.log("clicked");
+  // };
   return (
     <div className="form-container">
+      <ProgressBar barState={progressBar}/>
       <div key={questions.id}>
         <p>{questions.question}</p>
         <div className="error-message">{error}</div>
