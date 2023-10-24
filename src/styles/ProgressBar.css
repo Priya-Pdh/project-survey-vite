@@ -1,7 +1,7 @@
 .progress-bar-container {
     width: 50%;
     border-radius: 20px;
-    border: 1px solid white;
+    border: 1px solid orange;
     background-color: #ffff;
     margin: 5%;
 }
@@ -11,4 +11,17 @@
     height: 15px;
     border-radius: 20px;
     background-color: green;
+}
+
+@media (min-width: 768px) {
+    .progress-bar-container {
+        width: 30%;
+       
+    }
+}
+@media (min-width: 1024px) {
+    .progress-bar-container {
+        width: 30%;
+       
+    }
 }

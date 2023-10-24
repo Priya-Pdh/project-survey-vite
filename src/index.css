@@ -1,21 +1,17 @@
 :root {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./assets/backGroundImage.jpeg");
+  background-image: url("./assets/image3.jpeg");
   /* Full height */
   height: 100%;
+  font-size: 20px;
 
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
-  /* background-size: cover; */
+  background-size: cover;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+
