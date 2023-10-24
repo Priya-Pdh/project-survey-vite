@@ -1,6 +1,7 @@
 import { useState } from "react";
 import data from "../data.json";
 import "../styles/InputComponent.css";
+import { ProgressBar } from "./ProgressBar";
 
 export const InputComponent = () => {
   const [currentQuestion, setQuestions] = useState(0);
@@ -9,6 +10,9 @@ export const InputComponent = () => {
   const [rangeValue, setRangeValue] = useState(0);
 
   const [error, setError] = useState("");
+
+  //Progress Bar
+  const [progressBar, setProgressBar] = useState(0);
 
   const questions = data[currentQuestion];
 
@@ -23,6 +27,10 @@ export const InputComponent = () => {
       setError("Please select an option");
     } else {
       setQuestions(currentQuestion + 1);
+      setProgressBar(
+        progressBar < 100 ? progressBar + 100 / data.length : progressBar
+      );
+      console.log("clicked");
       setAnswer(""); // Clear the answer
       setRangeValue(0); // Clear the range value
       setError(""); // Clear the error message
@@ -40,51 +48,52 @@ export const InputComponent = () => {
     setRangeValue(selectedValue);
     setError("");
   };
+
   return (
     <div className="form-container">
-      <div key={questions.id}>
+      <div key={questions.id} className="inner-form-wrapper">
+        <ProgressBar barState={progressBar} />
         <p>{questions.question}</p>
-      </div>
 
-      {questions.type === "text" && (
-        <div>
-          <input
-            type="text"
+        {questions.type === "text" && (
+          <div>
+            <input
+              type="text"
+              className={error && "input-error"}
+              onChange={handleChange}
+            />
+          </div>
+        )}
+
+        {questions.type === "select" && (
+          <select
+            value={answer}
             className={error && "input-error"}
             onChange={handleChange}
-          />
-        </div>
-      )}
-
-      {questions.type === "select" && (
-        <select
-          value={answer}
-          className={error && "input-error"}
-          onChange={handleChange}
-        >
-          {questions.options.map((option, index) => (
-            <option key={index} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      )}
-      {questions.type === "radio" && (
-        <div>
-          {questions.options.map((option, index) => (
-            <div key={index}>
-              <input
-                type="radio"
-                value={option}
-                name={`radioOption_${questions.id}`}
-                className={error && "input-error"}
-                onChange={handleChange}
-              />
-              <label>{option}</label>
-            </div>
-          ))}
-        </div>
-      )}
+          >
+            {questions.options.map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        )}
+        {questions.type === "radio" && (
+          <div>
+            {questions.options.map((option, index) => (
+              <div key={index} className="radio-input">
+                <input
+                  type="radio"
+                  value={option}
+                  name={`radioOption_${questions.id}`}
+                  className={error && "input-error "}
+                  onChange={handleChange}
+                />
+                <label>{option}</label>
+              </div>
+            ))}
+          </div>
+        )}
 
       {questions.type === "range" && (
         <>
