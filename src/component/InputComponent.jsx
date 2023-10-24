@@ -54,7 +54,6 @@ export const InputComponent = () => {
       <div key={questions.id} className="inner-form-wrapper">
         <ProgressBar barState={progressBar} />
         <p>{questions.question}</p>
-        <div className="error-message">{error}</div>
 
         {questions.type === "text" && (
           <div>
@@ -96,29 +95,27 @@ export const InputComponent = () => {
           </div>
         )}
 
-        {questions.type === "range" && (
-          <>
-            <input
-              type="range"
-              min={questions.min}
-              max={questions.max}
-              step={questions.step}
-              value={rangeValue}
-              className={error && "input-error"}
-              onChange={handleRangeChange}
-            />
-            <label htmlFor="rangeInput">{rangeValue}</label>
-          </>
+      {questions.type === "range" && (
+        <>
+          <input
+            type="range"
+            min={questions.min}
+            max={questions.max}
+            step={questions.step}
+            value={rangeValue}
+            className={error && "input-error"}
+            onChange={handleRangeChange}
+          />
+          <label htmlFor="rangeInput">{rangeValue}</label>
+        </>
+      )}
+      <div className="error-message">{error}</div>
+      <div>
+        {currentQuestion < data.length - 1 ? (
+          <button onClick={handleNextQuestion}>Next</button>
+        ) : (
+          <button>Submit</button>
         )}
-        <div>
-          {currentQuestion < data.length - 1 ? (
-            <button className="next btn" onClick={handleNextQuestion}>
-              Next
-            </button>
-          ) : (
-            <button className="submit btn">Submit</button>
-          )}
-        </div>
       </div>
     </div>
   );
