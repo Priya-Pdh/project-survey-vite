@@ -1,13 +1,18 @@
 import { useState } from "react";
 import data from "../data.json";
 import "../styles/InputComponent.css";
+import { ProgressBar } from "./ProgressBar";
 
 export const InputComponent = () => {
   const [currentQuestion, setQuestions] = useState(0);
-  const [rangeValue, setRangeValue] = useState(0);
 
   const [answer, setAnswer] = useState("");
-  const [isAnswerFilled, setIsAnswerFilled] = useState(false);
+  const [rangeValue, setRangeValue] = useState(0);
+
+  const [error, setError] = useState("");
+
+  //Progress Bar
+  const [progressBar, setProgressBar] = useState(0);
 
   const [userResponses, setUserResponses] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -15,28 +20,36 @@ export const InputComponent = () => {
   const questions = data[currentQuestion];
 
   const handleNextQuestion = () => {
-    if (isAnswerFilled) {
-      if (currentQuestion < data.length - 1) {
-        setQuestions(currentQuestion + 1);
-        setIsAnswerFilled(false); // it resets the answer filled status
-        setUserResponses([...userResponses, answer]);
-        setAnswer(""); // Clears the answer
-      }
+    if (questions.type === "text" && answer.trim() === "") {
+      setError("Please fill out the answer");
+    } else if (questions.type === "range" && rangeValue === 0) {
+      setError("Please select a value on the range slider");
+    } else if (questions.type === "radio" && !answer) {
+      setError("Please select an option");
+    } else if (questions.type === "select" && answer === "") {
+      setError("Please select an option");
     } else {
-      alert("Please fill out the answer");
+      setQuestions(currentQuestion + 1);
+      setProgressBar(
+        progressBar < 100 ? progressBar + 100 / data.length : progressBar
+      );
+      console.log("clicked");
+      setAnswer(""); // Clear the answer
+      setRangeValue(0); // Clear the range value
+      setError(""); // Clear the error message
     }
   };
 
   const handleChange = (e) => {
     const userInput = e.target.value;
     setAnswer(userInput);
-    setIsAnswerFilled(userInput.trim() !== "");
+    setError("");
   };
 
   const handleRangeChange = (e) => {
     const selectedValue = e.target.value;
     setRangeValue(selectedValue);
-    setIsAnswerFilled(selectedValue !== "0");
+    setError("");
   };
 
   const handleSubmit = (e) => {
@@ -44,78 +57,78 @@ export const InputComponent = () => {
     setIsSubmitted(true);
     setUserResponses([...userResponses, answer]);
   };
+
   return (
-    <>
-      {!isSubmitted && (
-        <div className="form-container">
-          <div key={questions.id}>
-            <p>{questions.question}</p>
-          </div>
-          {questions.type === "text" && (
-            <input type="text" onChange={handleChange} />
-          )}
-          {questions.type === "select" && (
-            <select value={answer} onChange={handleChange}>
-              {questions.options.map((option, index) => (
-                <option key={index} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-          )}
-          {questions.type === "radio" && (
-            <div>
-              {questions.options.map((option, index) => (
-                <div key={index}>
-                  <input
-                    type="radio"
-                    value={option}
-                    name={`radioOption_${questions.id}`}
-                    onChange={handleChange}
-                  />
-                  <label>{option}</label>
-                </div>
-              ))}
-            </div>
-          )}
+    <div className="form-container">
+      <div key={questions.id} className="inner-form-wrapper">
+        <ProgressBar barState={progressBar} />
+        <p>{questions.question}</p>
 
-          {questions.type === "range" && (
-            <>
-              <input
-                type="range"
-                min={questions.min}
-                max={questions.max}
-                step={questions.step}
-                value={rangeValue}
-                onChange={handleRangeChange}
-              />
-              <label htmlFor="rangeInput">{rangeValue}</label>
-            </>
-          )}
+        {questions.type === "text" && (
           <div>
-            {currentQuestion < data.length - 1 ? (
-              <button onClick={handleNextQuestion}>Next</button>
-            ) : (
-              <button onClick={handleSubmit}>Submit</button>
-            )}
+            <input
+              type="text"
+              className={error && "input-error"}
+              onChange={handleChange}
+            />
           </div>
-        </div>
-      )}
+        )}
 
-      {userResponses && (
+        {questions.type === "select" && (
+          <select
+            value={answer}
+            className={error && "input-error"}
+            onChange={handleChange}
+          >
+            {questions.options.map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        )}
+        {questions.type === "radio" && (
+          <div>
+            {questions.options.map((option, index) => (
+              <div key={index} className="radio-input">
+                <input
+                  type="radio"
+                  value={option}
+                  name={`radioOption_${questions.id}`}
+                  className={error && "input-error "}
+                  onChange={handleChange}
+                />
+                <label>{option}</label>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {questions.type === "range" && (
+          <>
+            <input
+              type="range"
+              min={questions.min}
+              max={questions.max}
+              step={questions.step}
+              value={rangeValue}
+              className={error && "input-error"}
+              onChange={handleRangeChange}
+            />
+            <label htmlFor="rangeInput">{rangeValue}</label>
+          </>
+        )}
+        <div className="error-message">{error}</div>
         <div>
-          {!isSubmitted && <h2>User's Answers:</h2> ? (
-            isSubmitted
+          {currentQuestion < data.length - 1 ? (
+            <button className="next btn" onClick={handleNextQuestion}>
+              Next
+            </button>
           ) : (
-            <div className="answers">
-              <h2>User's Answers:</h2>
-              {userResponses.map((response, index) => {
-                return <p key={index}>{response}</p>;
-              })}
-            </div>
+            <button className="submit btn">Submit</button>
           )}
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 };
