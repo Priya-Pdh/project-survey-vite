@@ -54,7 +54,7 @@ export const InputComponent = () => {
       <div key={questions.id} className="inner-form-wrapper">
         <ProgressBar barState={progressBar} />
         <p>{questions.question}</p>
-
+   
         {questions.type === "text" && (
           <div>
             <input
@@ -109,14 +109,15 @@ export const InputComponent = () => {
           <label htmlFor="rangeInput">{rangeValue}</label>
         </>
       )}
-      <div className="error-message">{error}</div>
+    <div className="error-message">{error}</div>
       <div>
         {currentQuestion < data.length - 1 ? (
-          <button onClick={handleNextQuestion}>Next</button>
+          <button  className="next btn" onClick={handleNextQuestion}>Next</button>
         ) : (
-          <button>Submit</button>
+          <button className="submit btn">Submit</button>
         )}
       </div>
+    </div>
     </div>
   );
 };
