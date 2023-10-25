@@ -10,7 +10,7 @@
     "id": 2,
     "question": "Select a type of drink:",
     "type": "select",
-    "options": ["Soda 🥤", "Fruit Juice 🧃", "Tea 🫖", "Coffee ☕️", "Water 💧"]
+    "options": ["Soda 🥤", "Fruit Juice 🧃", "Tea 🫖", "Coffee ☕️", "Water 💧"],
     "color": "orange",
     "sentence": "My favourite drink is"
   },
@@ -37,7 +37,7 @@
     "id": 5,
     "question": "Select a garnish (if any):",
     "type": "select",
-    "options": ["Lemon Slice 🍋", "Mint Leaves 🌿", "Berries 🍓🫐", "No garnish"]
+    "options": ["Lemon Slice 🍋", "Mint Leaves 🌿", "Berries 🍓🫐", "No garnish"],
     "color": "blue",
     "sentence": "I like to garnish my drink with"
   },
