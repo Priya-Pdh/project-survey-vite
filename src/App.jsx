@@ -1,4 +1,4 @@
-import { InputComponent } from "./component/InputComponent/InputComponent";
+import { InputComponent } from "./components/InputComponent/InputComponent";
 
 export const App = () => {
   return (
