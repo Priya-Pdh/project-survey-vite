@@ -146,11 +146,12 @@ export const InputComponent = () => {
               <p key={index}>
                 <span style={{ color: "black" }}>{response.sentence}</span>{" "}
                 <span style={{ color: response.color }}>
-                  {response.answer} {response.currency}.
+                  {response.answer} {response.currency}
                 </span>
               </p>
             );
           })}
+          <span>Thanks for your input about drinks!</span>
         </div>
       )}
     </div>
