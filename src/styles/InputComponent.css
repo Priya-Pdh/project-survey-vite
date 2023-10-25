@@ -68,6 +68,11 @@ select {
   display: block;
 }
 
+.result {
+  background-image: url("../assets/paper-bg.jpg");
+  padding: 1rem;
+}
+
 /* Media query for small screens (320px - 767px) */
 @media (min-width: 320px) and (max-width: 767px) {
   .inner-form-wrapper {
@@ -103,3 +108,5 @@ select {
     font-size: 14px;
   }
 }
+
+

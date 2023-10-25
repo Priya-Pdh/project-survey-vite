@@ -2,19 +2,25 @@
   {
     "id": 1,
     "question": "Please type your name to proceed!",
-    "type": "text"
+    "type": "text",
+    "color": "red",
+    "sentence": "Hi! My name is"
   },
   {
     "id": 2,
     "question": "Select a type of drink:",
     "type": "select",
     "options": ["Soda 🥤", "Fruit Juice 🧃", "Tea 🫖", "Coffee ☕️", "Water 💧"]
+    "color": "orange",
+    "sentence": "My favourite drink is"
   },
   {
     "id": 3,
     "question": "Choose a sweetener:",
     "type": "radio",
-    "options": ["Sugar", "Honey", "Stevia", "No sweetener"]
+    "options": ["Sugar", "Honey", "Stevia", "No sweetener"],
+    "color": "#efcc00",
+    "sentence": "I like to sweeten my drink with"
   },
   {
     "id": 4,
@@ -23,18 +29,31 @@
     "min": 0,
     "max": 100,
     "step": 1,
-    "unit": "°C"
+    "unit": "°C",
+    "color": "green",
+    "sentence": "I prefer my drink to be at"
   },
   {
     "id": 5,
     "question": "Select a garnish (if any):",
     "type": "select",
     "options": ["Lemon Slice 🍋", "Mint Leaves 🌿", "Berries 🍓🫐", "No garnish"]
+    "color": "blue",
+    "sentence": "I like to garnish my drink with"
   },
   {
     "id": 6,
     "question": "Choose a cup or glass type:",
     "type": "radio",
-    "options": ["Mug", "Glass", "Cup", "Bottle"]
+    "options": ["Mug", "Glass", "Cup", "Bottle"],
+    "color": "purple",
+    "sentence": "Lastly, I like to drink from a"
+  },
+  {
+    "id": 7,
+    "question": "What is your email address?",
+    "type": "email",
+    "color": "brown",
+    "sentence": "My email address is"
   }
 ]
