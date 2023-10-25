@@ -1,13 +1,13 @@
 /* InputComponent.css */
 .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100vh; 
-    margin-top: 50px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  margin-top: 50px;
+}
+
 .inner-form-wrapper {
   padding: 20px;
   background-color: rgba(238, 203, 144, 0.734);
@@ -20,7 +20,7 @@
 /* Add red color for error messages */
 .error-message {
   color: #ea4335;
-  margin-top: 5px; 
+  margin-top: 5px;
 }
 
 /* Add red border to input fields with errors */
@@ -36,4 +36,9 @@
 
 .radio-input {
   display: flex;
+}
+
+.result {
+  background-image: url("../assets/paper-bg.jpg");
+  padding: 1rem;
 }
