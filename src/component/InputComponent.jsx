@@ -54,7 +54,7 @@ export const InputComponent = () => {
       <div key={questions.id} className="inner-form-wrapper">
         <ProgressBar barState={progressBar} />
         <p>{questions.question}</p>
-   
+
         {questions.type === "text" && (
           <div>
             <input
@@ -71,6 +71,7 @@ export const InputComponent = () => {
             className={error && "input-error"}
             onChange={handleChange}
           >
+            <option value="">Select</option>
             {questions.options.map((option, index) => (
               <option key={index} value={option}>
                 {option}
@@ -95,29 +96,31 @@ export const InputComponent = () => {
           </div>
         )}
 
-      {questions.type === "range" && (
-        <>
-          <input
-            type="range"
-            min={questions.min}
-            max={questions.max}
-            step={questions.step}
-            value={rangeValue}
-            className={error && "input-error"}
-            onChange={handleRangeChange}
-          />
-          <label htmlFor="rangeInput">{rangeValue}</label>
-        </>
-      )}
-    <div className="error-message">{error}</div>
-      <div>
-        {currentQuestion < data.length - 1 ? (
-          <button  className="next btn" onClick={handleNextQuestion}>Next</button>
-        ) : (
-          <button className="submit btn">Submit</button>
+        {questions.type === "range" && (
+          <>
+            <input
+              type="range"
+              min={questions.min}
+              max={questions.max}
+              step={questions.step}
+              value={rangeValue}
+              className={error && "input-error"}
+              onChange={handleRangeChange}
+            />
+            <label htmlFor="rangeInput">{rangeValue}</label>
+          </>
         )}
+        <div className="error-message">{error}</div>
+        <div>
+          {currentQuestion < data.length - 1 ? (
+            <button className="next btn" onClick={handleNextQuestion}>
+              Next
+            </button>
+          ) : (
+            <button className="submit btn">Submit</button>
+          )}
+        </div>
       </div>
-    </div>
     </div>
   );
 };
