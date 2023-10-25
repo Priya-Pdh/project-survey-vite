@@ -12,6 +12,7 @@ export const InputComponent = () => {
 
   //Progress Bar
   const [progressBar, setProgressBar] = useState(0);
+  const [showProgress, setShowProgress] = useState(false);
 
   // User responses
   const [userResponses, setUserResponses] = useState([]);
@@ -45,9 +46,16 @@ export const InputComponent = () => {
       setError("Please select an option");
     } else {
       setQuestions(currentQuestion + 1);
-      setProgressBar(
-        progressBar < 100 ? progressBar + 100 / data.length : progressBar
-      );
+
+      // progress showing excluding the first two questions
+
+      if (questions.id > 1) {
+        setProgressBar(
+          progressBar < 100
+            ? progressBar + 100 / (data.length - 2)
+            : progressBar
+        );
+      }
 
       setUserResponses([...userResponses, userSubmitResult]);
       setAnswer(""); // Clear the answer
@@ -75,8 +83,8 @@ export const InputComponent = () => {
     <div className="form-container">
       {!isSubmitted ? (
         <div key={questions.id} className="inner-form-wrapper">
-         <h3>Welcome to RefreshmentZone 🍻</h3>
-         <ProgressBar barState={progressBar} />
+          <h3>Welcome to RefreshmentZone 🍻</h3>
+          {questions.id > 1 ? <ProgressBar barState={progressBar} /> : null}
           <p className="questions">{questions.question}</p>
 
           {questions.type === "text" && (
@@ -95,7 +103,7 @@ export const InputComponent = () => {
               className={error && "input-error"}
               onChange={handleChange}
             >
-             <option value="">Select</option>
+              <option value="">Select</option>
               {questions.options.map((option, index) => (
                 <option key={index} value={option}>
                   {option}
@@ -122,17 +130,19 @@ export const InputComponent = () => {
 
           {questions.type === "range" && (
             <>
-            <div>
-              <input
-                type="range"
-                min={questions.min}
-                max={questions.max}
-                step={questions.step}
-                value={answer || 0}
-                className={error && "input-error"}
-                onChange={handleChange}
-              />
-              <label htmlFor="rangeInput" className="range-label">{answer} SEK</label>
+              <div>
+                <input
+                  type="range"
+                  min={questions.min}
+                  max={questions.max}
+                  step={questions.step}
+                  value={answer || 0}
+                  className={error && "input-error"}
+                  onChange={handleChange}
+                />
+                <label htmlFor="rangeInput" className="range-label">
+                  {answer} SEK
+                </label>
               </div>
             </>
           )}
@@ -169,8 +179,7 @@ export const InputComponent = () => {
               <p key={index}>
                 <span style={{ color: "black" }}>{response.sentence}</span>{" "}
                 <span style={{ color: response.color }}>
-                  {response.answer}{" "}
-                  {response.currency}.
+                  {response.answer} {response.currency}.
                 </span>
               </p>
             );
