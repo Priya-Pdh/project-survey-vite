@@ -75,8 +75,9 @@ export const InputComponent = () => {
     <div className="form-container">
       {!isSubmitted ? (
         <div key={questions.id} className="inner-form-wrapper">
-          <ProgressBar barState={progressBar} />
-          <p>{questions.question}</p>
+         <h3>Welcome to RefreshmentZone 🍻</h3>
+         <ProgressBar barState={progressBar} />
+          <p className="questions">{questions.question}</p>
 
           {questions.type === "text" && (
             <div>
@@ -94,6 +95,7 @@ export const InputComponent = () => {
               className={error && "input-error"}
               onChange={handleChange}
             >
+             <option value="">Select</option>
               {questions.options.map((option, index) => (
                 <option key={index} value={option}>
                   {option}
@@ -102,9 +104,9 @@ export const InputComponent = () => {
             </select>
           )}
           {questions.type === "radio" && (
-            <div>
+            <div className="radio-input-container">
               {questions.options.map((option, index) => (
-                <div key={index} className="radio-input">
+                <div key={index}>
                   <input
                     type="radio"
                     value={option}
@@ -120,6 +122,7 @@ export const InputComponent = () => {
 
           {questions.type === "range" && (
             <>
+            <div>
               <input
                 type="range"
                 min={questions.min}
@@ -129,7 +132,8 @@ export const InputComponent = () => {
                 className={error && "input-error"}
                 onChange={handleChange}
               />
-              <label htmlFor="rangeInput">{answer}</label>
+              <label htmlFor="rangeInput" className="range-label">{answer}</label>
+              </div>
             </>
           )}
 
