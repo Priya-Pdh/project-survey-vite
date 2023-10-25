@@ -3,6 +3,8 @@ import data from "../data.json";
 import "../styles/InputComponent.css";
 import { ProgressBar } from "./ProgressBar";
 
+const emailRegex = /^[a-z0-9_%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i;
+
 export const InputComponent = () => {
   const [currentQuestion, setQuestions] = useState(0);
   const [answer, setAnswer] = useState("");
@@ -16,18 +18,25 @@ export const InputComponent = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const questions = data[currentQuestion];
+  let userSubmitReslut;
 
   // Create the user response object
-  const userSubmitReslut = {
-    sentence: questions.sentence,
-    answer: answer,
-    color: questions.color || "black",
-    unit: questions.unit || "",
-  };
+  if (questions) {
+    userSubmitReslut = {
+      sentence: questions.sentence,
+      answer: answer,
+      color: questions.color || "black",
+      unit: questions.unit || "",
+    };
+  } else {
+    console.log("An error occured");
+  }
 
   const handleNextQuestion = () => {
     if (questions.type === "text" && answer.trim() === "") {
       setError("Please fill out the answer");
+    } else if (questions.type === "email" && !emailRegex.test(answer)) {
+      setError("Please enter a valid email address");
     } else if (questions.type === "range" && answer === "") {
       setError("Please select a value on the range slider");
     } else if (questions.type === "radio" && !answer) {
@@ -43,6 +52,7 @@ export const InputComponent = () => {
       setUserResponses([...userResponses, userSubmitReslut]);
       setAnswer(""); // Clear the answer
       setError(""); // Clear the error message
+      return true;
     }
   };
 
@@ -54,8 +64,11 @@ export const InputComponent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setUserResponses([...userResponses, userSubmitReslut]);
+    const isSuccess = handleNextQuestion();
+    if (isSuccess) {
+      setIsSubmitted(true);
+      setUserResponses([...userResponses, userSubmitReslut]);
+    }
   };
 
   return (
@@ -119,6 +132,18 @@ export const InputComponent = () => {
               <label htmlFor="rangeInput">{answer}</label>
             </>
           )}
+
+          {questions.type === "email" && (
+            <div>
+              <input
+                type="email"
+                className={error && "input-error"}
+                value={answer}
+                onChange={handleChange}
+              />
+            </div>
+          )}
+
           <div className="error-message">{error}</div>
           <div>
             {currentQuestion < data.length - 1 ? (
@@ -133,14 +158,14 @@ export const InputComponent = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="result">
           {userResponses.map((response, index) => {
             return (
               <p key={index}>
                 <span style={{ color: "black" }}>{response.sentence}</span>{" "}
                 <span style={{ color: response.color }}>
                   {response.answer}
-                  {response.unit}
+                  {response.unit}.
                 </span>
               </p>
             );

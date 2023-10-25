@@ -37,3 +37,8 @@
 .radio-input {
   display: flex;
 }
+
+.result {
+  background-image: url("../assets/paper-bg.jpg");
+  padding: 1rem;
+}

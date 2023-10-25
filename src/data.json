@@ -19,8 +19,8 @@
     "question": "Choose a sweetener:",
     "type": "radio",
     "options": ["Sugar", "Honey", "Stevia", "No sweetener"],
-    "color": "yellow",
-    "sentence": "and I like to sweeten my drink with"
+    "color": "#efcc00",
+    "sentence": "I like to sweeten my drink with"
   },
   {
     "id": 4,
@@ -39,7 +39,7 @@
     "type": "select",
     "options": ["Lemon Slice", "Mint Leaves", "Cinnamon Stick", "No garnish"],
     "color": "blue",
-    "sentence": "and like to garnish my drink with"
+    "sentence": "I like to garnish my drink with"
   },
   {
     "id": 6,
@@ -48,5 +48,12 @@
     "options": ["Mug", "Glass", "Cup", "Bottle"],
     "color": "purple",
     "sentence": "Lastly, I like to drink from a"
+  },
+  {
+    "id": 7,
+    "question": "What is your email address?",
+    "type": "email",
+    "color": "brown",
+    "sentence": "My email address is"
   }
 ]
