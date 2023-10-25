@@ -18,11 +18,11 @@ export const InputComponent = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const questions = data[currentQuestion];
-  let userSubmitReslut;
+  let userSubmitResult;
 
   // Create the user response object
   if (questions) {
-    userSubmitReslut = {
+    userSubmitResult = {
       sentence: questions.sentence,
       answer: answer,
       color: questions.color || "black",
@@ -49,7 +49,7 @@ export const InputComponent = () => {
         progressBar < 100 ? progressBar + 100 / data.length : progressBar
       );
 
-      setUserResponses([...userResponses, userSubmitReslut]);
+      setUserResponses([...userResponses, userSubmitResult]);
       setAnswer(""); // Clear the answer
       setError(""); // Clear the error message
       return true;
@@ -67,7 +67,7 @@ export const InputComponent = () => {
     const isSuccess = handleNextQuestion();
     if (isSuccess) {
       setIsSubmitted(true);
-      setUserResponses([...userResponses, userSubmitReslut]);
+      setUserResponses([...userResponses, userSubmitResult]);
     }
   };
 
