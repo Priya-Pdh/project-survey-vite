@@ -145,6 +145,7 @@ export const InputComponent = () => {
           )}
 
           <div className="error-message">{error}</div>
+
           <div>
             {currentQuestion < data.length - 1 ? (
               <button className="next btn" onClick={handleNextQuestion}>
