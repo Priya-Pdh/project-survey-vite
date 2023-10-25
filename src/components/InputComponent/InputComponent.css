@@ -69,8 +69,9 @@ select {
 }
 
 .result {
-  background-image: url("../assets/paper-bg.jpg");
+  background-image: url("../../assets/paper-bg.jpg");
   padding: 1rem;
+  border-radius: 5rem;
 }
 
 /* Media query for small screens (320px - 767px) */
@@ -108,5 +109,3 @@ select {
     font-size: 14px;
   }
 }
-
-
