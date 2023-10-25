@@ -1,7 +1,7 @@
 import { useState } from "react";
-import data from "../data.json";
-import "../styles/InputComponent.css";
-import { ProgressBar } from "./ProgressBar";
+import data from "../../data.json";
+import "./InputComponent.css";
+import { ProgressBar } from "../ProgressBar/ProgressBar";
 
 const emailRegex = /^[a-z0-9_%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i;
 

@@ -1,4 +1,4 @@
-import "../styles/ProgressBar.css";
+import "./ProgressBar.css";
 export const ProgressBar = ({ barState}) => {
   return (
     <>
