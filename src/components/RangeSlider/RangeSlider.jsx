@@ -10,7 +10,7 @@ const RangeSlider = ({ min, max, answer, error, handleChange }) => {
         onChange={handleChange}
       />
       <label htmlFor="rangeInput" className="range-label">
-        {answer} SEK
+        {answer || 0} SEK
       </label>
     </div>
   );
