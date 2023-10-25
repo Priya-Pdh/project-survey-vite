@@ -26,7 +26,7 @@ export const InputComponent = () => {
       sentence: questions.sentence,
       answer: answer,
       color: questions.color || "black",
-      unit: questions.unit || "",
+      currency: questions.currency || "",
     };
   } else {
     console.log("An error occured");
@@ -132,7 +132,7 @@ export const InputComponent = () => {
                 className={error && "input-error"}
                 onChange={handleChange}
               />
-              <label htmlFor="rangeInput" className="range-label">{answer}</label>
+              <label htmlFor="rangeInput" className="range-label">{answer} SEK</label>
               </div>
             </>
           )}
@@ -169,8 +169,8 @@ export const InputComponent = () => {
               <p key={index}>
                 <span style={{ color: "black" }}>{response.sentence}</span>{" "}
                 <span style={{ color: response.color }}>
-                  {response.answer}
-                  {response.unit}.
+                  {response.answer}{" "}
+                  {response.currency}.
                 </span>
               </p>
             );

@@ -24,14 +24,13 @@
   },
   {
     "id": 4,
-    "question": "Select drink temperature:",
+    "question": "How much would you pay for a drink?",
     "type": "range",
     "min": 0,
     "max": 100,
-    "step": 1,
-    "unit": "°C",
     "color": "green",
-    "sentence": "I prefer my drink to be at"
+    "currency": "SEK",
+    "sentence": "I prefer to pay around"
   },
   {
     "id": 5,
