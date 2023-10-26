@@ -12,7 +12,7 @@
   padding: 20px;
   background-color: rgba(238, 203, 144, 0.734);
   width: 400px;
-  height: 400px;
+  height: 450px;
   opacity: 0.7;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 25px;
@@ -22,15 +22,17 @@ h3 {
   color: #ea4335;
 }
 .questions {
-  font-size: 20px;
+  font-size: 22px;
   margin: 60px 0 40px 0;
 }
 
-input[type="text"],
-select {
+input, select {
   width: 50%;
-  height: 25px;
+  height: 30px;
   border: 1px solid orange;
+}
+input[type="radio"] {
+  height: 20px;
 }
 
 .error-message {
@@ -69,8 +71,12 @@ select {
 }
 
 .result {
-  background-image: url("../assets/paper-bg.jpg");
-  padding: 1rem;
+  padding: 2rem 1rem;
+  border-radius: 25px;
+  background-color: #ffff;
+  opacity: 0.7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  height: 430px;
 }
 
 /* Media query for small screens (320px - 767px) */
@@ -106,6 +112,11 @@ select {
 
   .range-label {
     font-size: 14px;
+  }
+  .result {
+    padding-top: 30px;
+   font-size: 12px;
+   height: 280px;
   }
 }
 

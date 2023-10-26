@@ -83,7 +83,7 @@ export const InputComponent = () => {
     <div className="form-container">
       {!isSubmitted ? (
         <div key={questions.id} className="inner-form-wrapper">
-          <h3>Welcome to RefreshmentZone 🍻</h3>
+          <h3>Sip & Share: Your Drink Preferences 🍹</h3>
           {questions.id > 1 ? <ProgressBar barState={progressBar} /> : null}
           <p className="questions">{questions.question}</p>
 
@@ -148,7 +148,7 @@ export const InputComponent = () => {
           )}
 
           {questions.type === "email" && (
-            <div>
+             <div>
               <input
                 type="email"
                 className={error && "input-error"}
@@ -173,7 +173,8 @@ export const InputComponent = () => {
           </div>
         </div>
       ) : (
-        <div className="result">
+        <div className="result"> 
+        <h3>Response Summary </h3>
           {userResponses.map((response, index) => {
             return (
               <p key={index}>
