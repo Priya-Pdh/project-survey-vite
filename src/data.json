@@ -4,15 +4,21 @@
     "question": "Please type your name to proceed!",
     "type": "text",
     "color": "red",
-    "sentence": "Hi! My name is"
+    "sentence": "So, based on your answers, your name is"
   },
   {
     "id": 2,
     "question": "Select a type of drink:",
     "type": "select",
-    "options": ["Soda 🥤", "Fruit Juice 🧃", "Tea 🫖", "Coffee ☕️", "Water 💧"],
+    "options": [
+      "Soda 🥤",
+      "Fruit Juice 🧃",
+      "Tea 🫖",
+      "Coffee ☕️",
+      "Water 💧"
+    ],
     "color": "orange",
-    "sentence": "My favourite drink is"
+    "sentence": "Your favourite drink is"
   },
   {
     "id": 3,
@@ -20,7 +26,7 @@
     "type": "radio",
     "options": ["Sugar", "Honey", "Stevia", "No sweetener"],
     "color": "#efcc00",
-    "sentence": "I like to sweeten my drink with"
+    "sentence": "You like to sweeten your drink with"
   },
   {
     "id": 4,
@@ -30,15 +36,20 @@
     "max": 100,
     "color": "green",
     "currency": "SEK",
-    "sentence": "I prefer to pay around"
+    "sentence": "You prefer to pay for your drink for around"
   },
   {
     "id": 5,
     "question": "Select a garnish (if any):",
     "type": "select",
-    "options": ["Lemon Slice 🍋", "Mint Leaves 🌿", "Berries 🍓🫐", "No garnish"],
+    "options": [
+      "Lemon Slice 🍋",
+      "Mint Leaves 🌿",
+      "Berries 🍓🫐",
+      "No garnish"
+    ],
     "color": "blue",
-    "sentence": "I like to garnish my drink with"
+    "sentence": "You like to garnish your drink with"
   },
   {
     "id": 6,
@@ -46,13 +57,13 @@
     "type": "radio",
     "options": ["Mug", "Glass", "Cup", "Bottle"],
     "color": "purple",
-    "sentence": "Lastly, I like to drink from a"
+    "sentence": "Lastly, you like to drink from a"
   },
   {
     "id": 7,
     "question": "What is your email address?",
     "type": "email",
     "color": "brown",
-    "sentence": "My email address is"
+    "sentence": "Your email address is"
   }
 ]
