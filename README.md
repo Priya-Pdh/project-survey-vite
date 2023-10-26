@@ -48,7 +48,7 @@ If we had more time:- we could have create more advanced form like Typeform with
 
 ### View it live 🚀
 
-survey-app-by-priya-and-naima.netlify.app 
+https://survey-app-by-priya-and-naima.netlify.app 
 
 ## Instructions
 
