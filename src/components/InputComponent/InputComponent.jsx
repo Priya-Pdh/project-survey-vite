@@ -68,6 +68,17 @@ export const InputComponent = () => {
     }
   };
 
+  const handlePreviousQuestion = () => {
+    const updatedUserResponses = [...userResponses];
+    updatedUserResponses.pop();
+
+    setQuestions(currentQuestion - 1);
+    setProgressBar(
+      progressBar > 0 ? progressBar - 100 / data.length : progressBar
+    );
+    setUserResponses(updatedUserResponses);
+  };
+
   const handleChange = (e) => {
     const userInput = e.target.value;
     setAnswer(userInput);
@@ -87,7 +98,7 @@ export const InputComponent = () => {
     <div className="form-container">
       {!isSubmitted ? (
         <div key={questions.id} className="inner-form-wrapper">
-             <h3>Welcome to RefreshmentZone 🍻</h3>
+          <h3>Welcome to RefreshmentZone 🍻</h3>
           {questions.id > 1 ? <ProgressBar barState={progressBar} /> : null}
           <p className="questions">{questions.question}</p>
 
@@ -135,6 +146,12 @@ export const InputComponent = () => {
           <div className="error-message">{error}</div>
 
           <div>
+            {currentQuestion > 0 && (
+              <button className="previous btn" onClick={handlePreviousQuestion}>
+                Previous
+              </button>
+            )}
+
             {currentQuestion < data.length - 1 ? (
               <button className="next btn" onClick={handleNextQuestion}>
                 Next
