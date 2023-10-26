@@ -4,7 +4,7 @@
     "question": "Please type your name to proceed!",
     "type": "text",
     "color": "red",
-    "sentence": "So, based on your answers, your name is"
+    "sentence": "So, based on your answers, "
   },
   {
     "id": 2,
@@ -12,15 +12,23 @@
     "type": "radio",
     "options": ["Daily", "Weekly", "Monthly", "Rarely", "Never"],
     "color": "darkblue",
-    "sentence": "I enjoy a drink"
+    "sentence": "You enjoy a drink"
   },
   {
     "id": 3,
     "question": "Select a your favorite of drink:",
     "type": "select",
-    "options": ["Soda 🥤", "Fruit Juice 🧃", "Tea 🫖", "Coffee ☕️", "Water 💧", "Smoothie 🍹", "Alcoholic Beverage 🍸"],
+    "options": [
+      "Soda 🥤",
+      "Fruit Juice 🧃",
+      "Tea 🫖",
+      "Coffee ☕️",
+      "Water 💧",
+      "Smoothie 🍹",
+      "Alcoholic Beverage 🍸"
+    ],
     "color": "maroon",
-    "sentence": "My favorite drink is"
+    "sentence": "Your favorite drink is"
   },
   {
     "id": 4,
@@ -28,17 +36,22 @@
     "type": "radio",
     "options": ["Sweet", "Sour", "Bitter", "Fruity", "None"],
     "color": "blue",
-    "sentence": "My favorite flavor profile is"
+    "sentence": "Your favorite flavor profile is"
   },
   {
     "id": 5,
     "question": "Select a garnish (if any):",
     "type": "select",
-    "options": ["Lemon Slice 🍋", "Mint Leaves 🌿", "Berries 🍓🫐", "No garnish"],
+    "options": [
+      "Lemon Slice 🍋",
+      "Mint Leaves 🌿",
+      "Berries 🍓🫐",
+      "No garnish"
+    ],
     "color": "purple",
-    "sentence": "I like to garnish my drink with"
+    "sentence": "You like to garnish your drink with"
   },
-  
+
   {
     "id": 6,
     "question": "How much would you pay for a drink?",

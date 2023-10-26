@@ -17,7 +17,6 @@ export const InputComponent = () => {
 
   //Progress Bar
   const [progressBar, setProgressBar] = useState(0);
-  const [showProgress, setShowProgress] = useState(false);
 
   // User responses
   const [userResponses, setUserResponses] = useState([]);
