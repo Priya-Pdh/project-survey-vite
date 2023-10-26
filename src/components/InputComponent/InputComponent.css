@@ -12,7 +12,7 @@
   padding: 20px;
   background-color: rgba(238, 203, 144, 0.734);
   width: 400px;
-  height: 400px;
+  height: 430px;
   opacity: 0.7;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 25px;
@@ -26,11 +26,14 @@ h3 {
   margin: 60px 0 40px 0;
 }
 
-input[type="text"], select, input[type="email"] {
+input[type="text"],
+select,
+input[type="email"] {
   width: 50%;
   border: 1px solid orange;
 }
-input[type="text"], input[type="email"]  {
+input[type="text"],
+input[type="email"] {
   height: 25px;
 }
 
@@ -89,9 +92,8 @@ select {
 }
 .new-response-button:hover {
   background-color: white;
-  color:#ea4335 ;
+  color: #ea4335;
 }
-
 
 /* Media query for small screens (320px - 767px) */
 @media (min-width: 320px) and (max-width: 767px) {
@@ -128,9 +130,10 @@ select {
     font-size: 14px;
   }
   .result {
-   font-size: 12px;
+    font-size: 12px;
   }
-  input[type="text"], input[type="email"]  {
+  input[type="text"],
+  input[type="email"] {
     height: 17px;
   }
   .btn {
@@ -142,7 +145,7 @@ select {
     font-size: 10px;
     height: 25px;
     width: fit-content;
-   }
+  }
   .radio-input-container {
     font-size: 12px;
   }

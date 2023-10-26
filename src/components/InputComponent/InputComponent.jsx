@@ -94,10 +94,9 @@ export const InputComponent = () => {
     }
   };
 
- const handleReloadChange = () => {
-  window.location.reload();
-};
-
+  const handleReloadChange = () => {
+    window.location.reload();
+  };
 
   return (
     <div className="form-container">
@@ -169,7 +168,9 @@ export const InputComponent = () => {
           </div>
         </div>
       ) : (
-        <div className="result"><h3>Response Summary</h3><hr/>
+        <div className="result">
+          <h3>Response Summary</h3>
+          <hr />
           {userResponses.map((response, index) => {
             return (
               <p key={index}>
@@ -182,7 +183,12 @@ export const InputComponent = () => {
           })}
           <span>Thanks for your input about drinks!</span>
           <div className="button-div">
-          <button onClick= {handleReloadChange}  className="new-response-button btn">Add New Response</button>
+            <button
+              onClick={handleReloadChange}
+              className="new-response-button btn"
+            >
+              Add New Response
+            </button>
           </div>
         </div>
       )}
