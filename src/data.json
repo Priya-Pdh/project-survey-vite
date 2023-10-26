@@ -8,28 +8,39 @@
   },
   {
     "id": 2,
-    "question": "Select a type of drink:",
-    "type": "select",
-    "options": [
-      "Soda 🥤",
-      "Fruit Juice 🧃",
-      "Tea 🫖",
-      "Coffee ☕️",
-      "Water 💧"
-    ],
-    "color": "orange",
-    "sentence": "Your favourite drink is"
+    "question": "How often do you enjoy a drink?",
+    "type": "radio",
+    "options": ["Daily", "Weekly", "Monthly", "Rarely", "Never"],
+    "color": "darkblue",
+    "sentence": "I enjoy a drink"
   },
   {
     "id": 3,
-    "question": "Choose a sweetener:",
-    "type": "radio",
-    "options": ["Sugar", "Honey", "Stevia", "No sweetener"],
-    "color": "#efcc00",
-    "sentence": "You like to sweeten your drink with"
+    "question": "Select a your favorite of drink:",
+    "type": "select",
+    "options": ["Soda 🥤", "Fruit Juice 🧃", "Tea 🫖", "Coffee ☕️", "Water 💧", "Smoothie 🍹", "Alcoholic Beverage 🍸"],
+    "color": "maroon",
+    "sentence": "My favorite drink is"
   },
   {
     "id": 4,
+    "question": "Select your favorite flavor profile:",
+    "type": "radio",
+    "options": ["Sweet", "Sour", "Bitter", "Fruity", "None"],
+    "color": "blue",
+    "sentence": "My favorite flavor profile is"
+  },
+  {
+    "id": 5,
+    "question": "Select a garnish (if any):",
+    "type": "select",
+    "options": ["Lemon Slice 🍋", "Mint Leaves 🌿", "Berries 🍓🫐", "No garnish"],
+    "color": "purple",
+    "sentence": "I like to garnish my drink with"
+  },
+  
+  {
+    "id": 6,
     "question": "How much would you pay for a drink?",
     "type": "range",
     "min": 0,
@@ -39,31 +50,10 @@
     "sentence": "You prefer to pay for your drink for around"
   },
   {
-    "id": 5,
-    "question": "Select a garnish (if any):",
-    "type": "select",
-    "options": [
-      "Lemon Slice 🍋",
-      "Mint Leaves 🌿",
-      "Berries 🍓🫐",
-      "No garnish"
-    ],
-    "color": "blue",
-    "sentence": "You like to garnish your drink with"
-  },
-  {
-    "id": 6,
-    "question": "Choose a cup or glass type:",
-    "type": "radio",
-    "options": ["Mug", "Glass", "Cup", "Bottle"],
-    "color": "purple",
-    "sentence": "Lastly, you like to drink from a"
-  },
-  {
     "id": 7,
-    "question": "What is your email address?",
+    "question": "Thank you for your time. Please provide your email to get your response summary!",
     "type": "email",
     "color": "brown",
-    "sentence": "Your email address is"
+    "sentence": "Email:"
   }
 ]
