@@ -17,6 +17,7 @@ export const InputComponent = () => {
 
   //Progress Bar
   const [progressBar, setProgressBar] = useState(0);
+  const [showProgress, setShowProgress] = useState(false);
 
   // User responses
   const [userResponses, setUserResponses] = useState([]);
@@ -50,9 +51,15 @@ export const InputComponent = () => {
       setError("Please select an option");
     } else {
       setQuestions(currentQuestion + 1);
-      setProgressBar(
-        progressBar < 100 ? progressBar + 100 / data.length : progressBar
-      );
+      // progress showing excluding the first two questions
+
+      if (questions.id > 1) {
+        setProgressBar(
+          progressBar < 100
+            ? progressBar + 100 / (data.length - 2)
+            : progressBar
+        );
+      }
 
       setUserResponses([...userResponses, userSubmitResult]);
       setAnswer(""); // Clear the answer
@@ -80,8 +87,8 @@ export const InputComponent = () => {
     <div className="form-container">
       {!isSubmitted ? (
         <div key={questions.id} className="inner-form-wrapper">
-          <h3>Welcome to RefreshmentZone 🍻</h3>
-          <ProgressBar barState={progressBar} />
+             <h3>Welcome to RefreshmentZone 🍻</h3>
+          {questions.id > 1 ? <ProgressBar barState={progressBar} /> : null}
           <p className="questions">{questions.question}</p>
 
           {questions.type === "text" && (
