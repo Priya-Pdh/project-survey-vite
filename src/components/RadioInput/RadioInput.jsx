@@ -1,4 +1,4 @@
-const RadioInput = ({ options, error, handleChange, name }) => {
+const RadioInput = ({ options, error, handleChange, name, value }) => {
   return (
     <div className="radio-input-container">
       {options.map((option, index) => (
@@ -9,6 +9,7 @@ const RadioInput = ({ options, error, handleChange, name }) => {
             name={name}
             className={error && "input-error "}
             onChange={handleChange}
+            checked={value === option}
           />
           <label>{option}</label>
         </div>

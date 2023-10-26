@@ -70,13 +70,21 @@ export const InputComponent = () => {
 
   const handlePreviousQuestion = () => {
     const updatedUserResponses = [...userResponses];
-    updatedUserResponses.pop();
+    const deletedResponses = updatedUserResponses.splice(-1, 1);
 
-    setQuestions(currentQuestion - 1);
-    setProgressBar(
-      progressBar > 0 ? progressBar - 100 / data.length : progressBar
-    );
+    // Previous values saved
     setUserResponses(updatedUserResponses);
+    setQuestions(currentQuestion - 1);
+    setAnswer(deletedResponses[0].answer);
+    setError("");
+    setIsSubmitted(false);
+
+    //Previous state for progress bar
+    if (questions.id > 1) {
+      setProgressBar(
+        progressBar > 0 ? progressBar - 100 / (data.length - 2) : progressBar
+      );
+    }
   };
 
   const handleChange = (e) => {
@@ -108,14 +116,18 @@ export const InputComponent = () => {
 
           {questions.type === "text" && (
             <div>
-              <InputText error={error} handleChange={handleChange} />
+              <InputText
+                error={error}
+                value={answer}
+                handleChange={handleChange}
+              />
             </div>
           )}
 
           {questions.type === "select" && (
             <SelectInput
+              value={answer}
               error={error}
-              answer={answer}
               handleChange={handleChange}
               options={questions.options}
             />
@@ -126,6 +138,7 @@ export const InputComponent = () => {
               error={error}
               handleChange={handleChange}
               name={`radioOption_${questions.id}`}
+              value={answer}
             />
           )}
 

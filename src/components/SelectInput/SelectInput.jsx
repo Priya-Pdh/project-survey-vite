@@ -1,7 +1,7 @@
-const SelectInput = ({ answer, error, handleChange, options }) => {
+const SelectInput = ({ value, error, handleChange, options }) => {
   return (
     <select
-      value={answer}
+      value={value}
       className={error && "input-error"}
       onChange={handleChange}
     >
