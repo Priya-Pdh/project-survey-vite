@@ -73,9 +73,12 @@ export const InputComponent = () => {
     updatedUserResponses.pop();
 
     setQuestions(currentQuestion - 1);
-    setProgressBar(
-      progressBar > 0 ? progressBar - 100 / data.length : progressBar
-    );
+
+    if (questions.id > 1) {
+      setProgressBar(
+        progressBar > 0 ? progressBar - 100 / (data.length - 2) : progressBar
+      );
+    }
     setUserResponses(updatedUserResponses);
   };
 
@@ -94,10 +97,9 @@ export const InputComponent = () => {
     }
   };
 
- const handleReloadChange = () => {
-  window.location.reload();
-};
-
+  const handleReloadChange = () => {
+    window.location.reload();
+  };
 
   return (
     <div className="form-container">
@@ -181,7 +183,12 @@ export const InputComponent = () => {
             );
           })}
           <span>Thanks for your input about drinks!</span>
-          <button onClick= {handleReloadChange}  className="NewResponseButton btn">New Response</button>
+          <button
+            onClick={handleReloadChange}
+            className="NewResponseButton btn"
+          >
+            New Response
+          </button>
         </div>
       )}
     </div>
