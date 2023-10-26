@@ -4,7 +4,7 @@
     "question": "Please type your name to proceed!",
     "type": "text",
     "color": "red",
-    "sentence": "Hi! My name is"
+    "sentence": "So, based on your answers, your name is"
   },
   {
     "id": 2,
@@ -47,7 +47,7 @@
     "max": 100,
     "color": "green",
     "currency": "SEK",
-    "sentence": "I prefer to pay around"
+    "sentence": "You prefer to pay for your drink for around"
   },
   {
     "id": 7,
