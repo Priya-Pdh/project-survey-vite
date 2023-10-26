@@ -94,6 +94,11 @@ export const InputComponent = () => {
     }
   };
 
+ const handleReloadChange = () => {
+  window.location.reload();
+};
+
+
   return (
     <div className="form-container">
       {!isSubmitted ? (
@@ -176,6 +181,7 @@ export const InputComponent = () => {
             );
           })}
           <span>Thanks for your input about drinks!</span>
+          <button onClick= {handleReloadChange}  className="NewResponseButton btn">New Response</button>
         </div>
       )}
     </div>
