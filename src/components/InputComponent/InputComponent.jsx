@@ -103,7 +103,7 @@ export const InputComponent = () => {
     <div className="form-container">
       {!isSubmitted ? (
         <div key={questions.id} className="inner-form-wrapper">
-          <h3>Welcome to RefreshmentZone 🍻</h3>
+          <h3>Sip & Share: Your Drink Preferences 🍻</h3>
           {questions.id > 1 ? <ProgressBar barState={progressBar} /> : null}
           <p className="questions">{questions.question}</p>
 
@@ -169,7 +169,7 @@ export const InputComponent = () => {
           </div>
         </div>
       ) : (
-        <div className="result">
+        <div className="result"><h3>Response Summary</h3><hr/>
           {userResponses.map((response, index) => {
             return (
               <p key={index}>
@@ -181,7 +181,9 @@ export const InputComponent = () => {
             );
           })}
           <span>Thanks for your input about drinks!</span>
-          <button onClick= {handleReloadChange}  className="NewResponseButton btn">New Response</button>
+          <div className="button-div">
+          <button onClick= {handleReloadChange}  className="new-response-button btn">Add New Response</button>
+          </div>
         </div>
       )}
     </div>
