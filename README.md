@@ -4,11 +4,21 @@
   </a>
 </h1>
 
-# Survey Project
+# Survey Project 🗒️
 
-Replace this readme with your own information about your project.
+Created by Naima Malik and Priya Pradhan 👩🏻‍💻👩🏻‍💻 
+Technigo Group Project Week 5 - October 22th to October 29th 2023
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This is Survey app about drinks preferences and it has the following features:
+
+- Multistep form
+- Progress Bar
+- Used various input type:- text, radio, select, range and email ( 6 questions)
+- Input validation
+- Regex Validation for email question
+- Next and Previous button to switch between different questions.
+- Finally a summary of response at the end.
+- Reload Button to get back to landing page.
 
 ## Getting Started with the Project
 
@@ -22,13 +32,23 @@ The command below is a combination of installing dependencies, opening up the pr
 npm i && code . && npm run dev
 ```
 
-### The Problem
+### The Problem  😈
 
 Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
-### View it live
+Problem: We had a complex merging conflicts for which we need to solve it through vs code editor .
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+How we solved it: comparing with the previous working branches helped us solved it. we tried to merge our work as soon as we finish to work on a branch. Communicated via slack for quick questions. 
+
+Planning:- Planned on Trello: started with Basic requirements and then worked with intermitted and then Advance goal.
+
+Tech used: Trello, Slack, Zoom and Goggle meet.
+
+If we had more time:- we could have create more advanced form like Typeform with all those scrolling features when appearing new questions.
+
+### View it live 🚀
+
+survey-app-by-priya-and-naima.netlify.app 
 
 ## Instructions
 
