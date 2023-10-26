@@ -12,7 +12,7 @@
   padding: 20px;
   background-color: rgba(238, 203, 144, 0.734);
   width: 400px;
-  height: 400px;
+  height: 430px;
   opacity: 0.7;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 25px;
@@ -27,10 +27,18 @@ h3 {
 }
 
 input[type="text"],
-select {
+select,
+input[type="email"] {
   width: 50%;
-  height: 25px;
   border: 1px solid orange;
+}
+input[type="text"],
+input[type="email"] {
+  height: 25px;
+}
+
+select {
+  height: 30px;
 }
 
 .error-message {
@@ -38,9 +46,9 @@ select {
   margin-top: 5px;
 }
 
-.input-error {
+/* .input-error {
   border: 1px solid #ea4335;
-}
+} */
 
 .btn {
   margin: 60px 20px 20px 20px;
@@ -61,7 +69,8 @@ select {
 .radio-input-container {
   display: flex;
   justify-content: center;
-  gap: 2%;
+  gap: 1%;
+  font-size: 18px;
 }
 
 .range-label {
@@ -69,17 +78,28 @@ select {
 }
 
 .result {
-  background-image: url("../../assets/paper-bg.jpg");
+  background-color: #ffff;
   padding: 2rem;
-  border-radius: 5rem;
-  opacity: 0.7;
+  border-radius: 25px;
+  opacity: 0.8;
+}
+
+.new-response-button {
+  background-color: #ea4335;
+  color: white;
+  width: 40%;
+  height: 35px;
+}
+.new-response-button:hover {
+  background-color: white;
+  color: #ea4335;
 }
 
 /* Media query for small screens (320px - 767px) */
 @media (min-width: 320px) and (max-width: 767px) {
   .inner-form-wrapper {
     width: 200px;
-    height: 400px;
+    height: 350px;
   }
 
   h3,
@@ -107,6 +127,32 @@ select {
   }
 
   .range-label {
+    font-size: 14px;
+  }
+  .result {
+    font-size: 12px;
+  }
+  input[type="text"],
+  input[type="email"] {
+    height: 17px;
+  }
+  .btn {
+    width: 40px;
+    height: 20px;
+    font-size: 8px;
+  }
+  .new-response-button {
+    font-size: 10px;
+    height: 25px;
+    width: fit-content;
+  }
+  .radio-input-container {
+    font-size: 12px;
+  }
+  select {
+    font-size: 10px;
+  }
+  .error-message {
     font-size: 14px;
   }
 }
