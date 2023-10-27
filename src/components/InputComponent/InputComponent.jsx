@@ -34,7 +34,7 @@ export const InputComponent = () => {
       currency: questions.currency || "",
     };
   } else {
-    console.log("An error occured");
+    console.log("An error occurred");
   }
 
   const handleNextQuestion = () => {
@@ -108,19 +108,19 @@ export const InputComponent = () => {
   return (
     <div className="form-container">
       {!isSubmitted ? (
-        <div key={questions.id} className="inner-form-wrapper">
+        <form key={questions.id} className="inner-form-wrapper">
           <h3>Sip & Share: Your Drink Preferences 🍻</h3>
           {questions.id > 1 ? <ProgressBar barState={progressBar} /> : null}
           <p className="questions">{questions.question}</p>
 
           {questions.type === "text" && (
-            <div>
+            <section>
               <InputText
                 error={error}
                 value={answer}
                 handleChange={handleChange}
               />
-            </div>
+            </section>
           )}
 
           {questions.type === "select" && (
@@ -159,7 +159,7 @@ export const InputComponent = () => {
             />
           )}
 
-          <div className="error-message">{error}</div>
+          <p className="error-message">{error}</p>
 
           <div>
             {currentQuestion > 0 && (
@@ -169,7 +169,7 @@ export const InputComponent = () => {
             )}
 
             {currentQuestion < data.length - 1 ? (
-              <button className="next btn" onClick={handleNextQuestion}>
+              <button type="button" className="next btn" onClick={handleNextQuestion}>
                 Next
               </button>
             ) : (
@@ -178,9 +178,9 @@ export const InputComponent = () => {
               </button>
             )}
           </div>
-        </div>
+        </form>
       ) : (
-        <div className="result">
+        <section className="result">
           <h3>Response Summary</h3>
           <hr />
           {userResponses.map((response, index) => {
@@ -202,7 +202,7 @@ export const InputComponent = () => {
               Add New Response
             </button>
           </div>
-        </div>
+        </section>
       )}
     </div>
   );
